@@ -70,12 +70,4 @@ python datasets/mpii_dataset.py(아직)
 
 19. restore하기
 
-vi 파일이름.py  >>>>  
-
-import tensorflow as tf
-
-saver=tf.train.import_meta_graph("out/lsp_alexnet_imagenet_small/checkpoint-150000.meta",clear_devices=True)
-
-with tf.Session() as sess:
-   saver.restore(sess, "out/lsp_alexnet_imagenet_small/checkpoint-150000.data-00000-of-00001")
-
+>>> 아직 
