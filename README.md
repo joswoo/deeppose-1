@@ -19,7 +19,8 @@ mkdir weights
 
 cd weights
 
-wget -O bvlc_alexnet.tf https://hcicloud.iwr.uni-heidelberg.de/index.php/s/sNklPpCiqOYOCAz/download
+wget http://smart.inu.ac.kr/weights/bvlc_alexnet.tf
+
 
 6.cd datasets
 
@@ -52,4 +53,11 @@ python datasets/mpii_dataset.py(아직)
 14. 필요한거 다 깔기
 (tensorflow설치>>)tensorflow version 1.4.1로 설치 >>pip3 install tensorflow-gpu==1.4.1
 
-15.bash examples/train_lsp_alexnet_imagenet_small.sh
+15.bash examples/train_lsp_alexnet_imagenet_small.sh 했을때 (SystemError: Parent module '' not loaded, cannot perform relative import)오류나면 
+
+16. git pull 
+
+17. 다시  bash examples/train_lsp_alexnet_imagenet_small.sh
+
+18.서버 내에서 training된 weight 가져오기 >>tar xvfz /tmp/out.tar.gz
+
