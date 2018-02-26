@@ -8,11 +8,14 @@
 
 4. vi ~/.bashrc 들어가서  아래추가
 
-export PATH=$PATH:/usr/local/cuda/bin
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
-export LD_INCLUDE_PATH=$LD_INCLUDE_PATH:/usr/local/cuda/include
+  export PATH=$PATH:/usr/local/cuda/bin
+  
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
+  
+  export LD_INCLUDE_PATH=$LD_INCLUDE_PATH:/usr/local/cuda/include
 
-5. mkdir weights
+5. 
+mkdir weights
 
 cd weights
 
