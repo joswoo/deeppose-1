@@ -14,7 +14,7 @@
   
   export LD_INCLUDE_PATH=$LD_INCLUDE_PATH:/usr/local/cuda/include
   
-  [vi>>> :q 그냥 나가기/:wq 저장 후 나가기]
+  [vi>>> esc누른후 :q 그냥 나가기/:wq 저장 후 나가기]
   
 
 5. mkdir weights
@@ -66,4 +66,15 @@ python datasets/mpii_dataset.py(아직)
 17. 다시  bash examples/train_lsp_alexnet_imagenet_small.sh
 
 18. 서버 내에서 training된 weight 가져오기 >>tar xvfz /tmp/out.tar.gz
+
+19. restore하기
+
+vi 파일이름.py  >>>>  
+
+import tensorflow as tf
+
+saver=tf.train.import_meta_graph("out/lsp_alexnet_imagenet_small/checkpoint-150000.meta",clear_devices=True)
+
+with tf.Session() as sess:
+   saver.restore(sess, "out/lsp_alexnet_imagenet_small/checkpoint-150000.data-00000-of-00001")
 
