@@ -14,6 +14,8 @@
   
   export LD_INCLUDE_PATH=$LD_INCLUDE_PATH:/usr/local/cuda/include
   
+  [vi>>> :q 그냥 나가기/:wq 저장 후 나가기]
+  
 
 5. mkdir weights
 
