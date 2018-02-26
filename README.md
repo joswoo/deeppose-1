@@ -55,6 +55,7 @@ python datasets/mpii_dataset.py(아직)
 12. cd deeppose
 
 13. CUDA_VISIBLE_DEVICES=1 bash examples/train_lsp_alexnet_imagenet_small.sh
+>>>원진 0번,  주영 1번, ...
 
 14. 필요한거 다 깔기
 (tensorflow설치>>)tensorflow version 1.4.1로 설치 >>pip3 install tensorflow-gpu==1.4.1
