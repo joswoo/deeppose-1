@@ -7,21 +7,30 @@
 3. 가상환경들어가서 git clone (deeppose)
 
 4. vi ~/.bashrc 들어가서  아래추가
+
 export PATH=$PATH:/usr/local/cuda/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
 export LD_INCLUDE_PATH=$LD_INCLUDE_PATH:/usr/local/cuda/include
 
 5. mkdir weights
+
 cd weights
+
 wget -O bvlc_alexnet.tf https://hcicloud.iwr.uni-heidelberg.de/index.php/s/sNklPpCiqOYOCAz/download
 
 6.cd datasets
+
 ./download_lsp.sh   # to get LSP dataset
+
 ./download_mpii.sh  # to get MPII dataset(아직)
+
+
 cd ..
 
 7.export PYTHONPATH=`pwd`
+
 python datasets/lsp_dataset.py
+
 python datasets/mpii_dataset.py(아직)
 
 8.  가상환경에서필요한거다운
