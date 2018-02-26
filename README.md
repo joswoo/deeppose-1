@@ -35,7 +35,7 @@ cd ..
 
 
 
-7. export PYTHONPATH=``pwd``
+7. export PYTHONPATH=```pwd```
 
 python datasets/lsp_dataset.py
 
