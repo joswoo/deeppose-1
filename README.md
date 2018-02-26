@@ -70,4 +70,34 @@ python datasets/mpii_dataset.py(아직)
 
 19. restore하기
 
->>> 아직 
+>>> 아직 시행착오중
+
+1번>>
+# test_restore
+
+import tensorflow as tf
+
+saver=tf.train.import_meta_graph("out/lsp_alexnet_imagenet_small/checkpoint-150000.meta")
+
+with tf.Session() as sess:
+saver.restore(sess, "out/lsp_alexnet_imagenet_small/checkpoint-150000.data-00000-of-00001")
+
+2번>>
+
+#/model/test.py
+
+with tf.Session(graph=g) as sess :
+
+    # Saver instance 를 생성한다.
+    # Saver.restore(sess, ckpt_path)
+
+    saver = tf.train.Saver()
+
+    sess.run(tf.global_variables_initializer())
+
+    # Saver.restore()
+    # args : tf.Session, job`s checkpoint file path
+    # return : None
+
+    ckpt_path = saver.restore(sess, tf.train.latest_checkpoint("saved"))
+
