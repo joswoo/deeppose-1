@@ -15,8 +15,7 @@
   export LD_INCLUDE_PATH=$LD_INCLUDE_PATH:/usr/local/cuda/include
   
 
-5. 
-mkdir weights
+5. mkdir weights
 
 cd weights
 
@@ -24,8 +23,7 @@ wget http://smart.inu.ac.kr/weights/bvlc_alexnet.tf
 
 
 
-6.
-cd datasets
+6. cd datasets
 
 ./download_lsp.sh   # to get LSP dataset
 
@@ -35,7 +33,7 @@ cd ..
 
 
 
-7.export PYTHONPATH=`pwd`
+7. export PYTHONPATH=`pwd`
 
 python datasets/lsp_dataset.py
 
@@ -43,27 +41,27 @@ python datasets/mpii_dataset.py(아직)
 
 
 
-8.  가상환경에서필요한거다운
+8. 가상환경에서 필요한거 다운
 
 9. ln -s /usr/local/lib/python3.5/dist-packages/cv2.so ~/(가상환경이름)/lib/python3.5/site-packages/cv2.so
 >> 이 방법으로 다운안되면 pip3 install opencv-python로 다운
 
-10.mkdir src
+10. mkdir src
 
-11.cd src
+11. cd src
 
 12. cd deeppose
 
-13.CUDA_VISIBLE_DEVICES=1 bash examples/train_lsp_alexnet_imagenet_small.sh
+13. CUDA_VISIBLE_DEVICES=1 bash examples/train_lsp_alexnet_imagenet_small.sh
 
 14. 필요한거 다 깔기
 (tensorflow설치>>)tensorflow version 1.4.1로 설치 >>pip3 install tensorflow-gpu==1.4.1
 
-15.bash examples/train_lsp_alexnet_imagenet_small.sh 했을때 (SystemError: Parent module '' not loaded, cannot perform relative import)오류나면 
+15. bash examples/train_lsp_alexnet_imagenet_small.sh 했을때 (SystemError: Parent module '' not loaded, cannot perform relative import)오류나면 
 
 16. git pull 
 
 17. 다시  bash examples/train_lsp_alexnet_imagenet_small.sh
 
-18.서버 내에서 training된 weight 가져오기 >>tar xvfz /tmp/out.tar.gz
+18. 서버 내에서 training된 weight 가져오기 >>tar xvfz /tmp/out.tar.gz
 
