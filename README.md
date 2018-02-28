@@ -16,9 +16,8 @@
 ```
 
 4. git clone 하기
-```mkdir src```
-
 ```
+mkdir src
 cd src
 ```
 
