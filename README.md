@@ -23,7 +23,7 @@
 
 >> git clone https://github.com/ys7yoo/deeppose.git
 ```
-
+> 홈 디렉토리를 `~/src/deeppose`로 
 7. 우리 서버 weight 받기
 ```
 >> cd deeppose
@@ -33,13 +33,8 @@
 >> cd weights
 
 >> wget http://smart.inu.ac.kr/weights/bvlc_alexnet.tf
-```
 
-8. dataset 받기
-```
->> cd datasets
-
->> ./download_lsp.sh
+>> cd ..
 ```
 
 
@@ -49,7 +44,7 @@
 ```
 >> ln -s /usr/local/lib/python3.5/dist-packages/cv2.so ~/(가상환경이름)/lib/python3.5/site-packages/cv2.so
 ```
-> 이 방법으로 다운안되면 `pip3 install opencv-python`로 다운
+> 이 방법으로 다운 안되면 `pip3 install opencv-python`로 다운
 
 
 2. tensorflow설치 tensorflow version 1.4.1로 설치 
@@ -62,11 +57,6 @@
 >> pip install --upgrade chainer numpy tqdm scipy
 ```
 
-4. gpu 나눠 쓰기 원진 0번,  주영 1번, 성우 2번, 소연 3번
-```
->> CUDA_VISIBLE_DEVICES=1 bash examples/train_lsp_alexnet_imagenet_small.sh
-```
-
 5. deeppose 디렉토리에서
 ```
 >> export PYTHONPATH=`pwd`
@@ -74,17 +64,22 @@
 
 6. small 데이터 트레이닝
 ```
->> bash examples/train_lsp_alexnet_imagenet_small.sh 
+>> CUDA_VISIBLE_DEVICES=0 bash examples/train_lsp_alexnet_imagenet_small.sh 
 ```
+> gpu 나눠 쓰기 원진 0번,  주영 1번, 성우 2번, 소연 3번
 
 7. training된 weight 가져오기 
 ```
+>> cd out
+
 >> tar xvfz /var/lsp_alexnet_imagenet.tar.gz 
+
+>> cd ..
 ```
 
 8. 원본 이미지넷 테스트
 ```
-python tests/test_snapshot.py lsp out/lsp_alexnet_imagenet/checkpoint-50000
+CUDA_VISIBLE_DEVICES=0 python tests/test_snapshot.py lsp out/lsp_alexnet_imagenet/checkpoint-50000
 ```
 
 
