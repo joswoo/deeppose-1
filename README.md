@@ -1,74 +1,85 @@
 # deeppose-1
 
-1. ssh (아이디)@alpha.inu.ac.kr 서버 들어가기
+1. 서버 들어가기
+```
+>> ssh (아이디)@alpha.inu.ac.k
+```
 
-2. virtualenv -p python3 (jy) 가상환경 만들기
+2. 가상환경 만들기
+```
+>> virtualenv -p python3 (jy)
+```
 
-3. 가상환경들어가서 git clone (deeppose)
+3. 가상환경들어가기
+```
+>> source jy/bin/activate
+```
 
-4. vi ~/.bashrc 들어가서  아래추가
+4. `mkdir src`
 
-  export PATH=$PATH:/usr/local/cuda/bin
+5. `cd src`
+
+6. 
+```
+>> git clone https://github.com/ys7yoo/deeppose.git
+```
+
+7. `cd deeppose`
   
-  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
-  
-  export LD_INCLUDE_PATH=$LD_INCLUDE_PATH:/usr/local/cuda/include
-  
-  [vi>>> esc누른후 :q 그냥 나가기/:wq 저장 후 나가기]
-  
+8. `mkdir weights`
 
-5. mkdir weights
+9. `cd weights`
+```
+>> wget http://smart.inu.ac.kr/weights/bvlc_alexnet.tf
+```
 
-cd weights
-
-wget http://smart.inu.ac.kr/weights/bvlc_alexnet.tf
-
+10. `cd ..`
+```
+>> export PYTHONPATH=`pwd`
+```
 
 
-6. cd datasets
+# 가상환경에서 필요한거 다운
 
-./download_lsp.sh   # to get LSP dataset
+1. 
+```
+>> ln -s /usr/local/lib/python3.5/dist-packages/cv2.so ~/(가상환경이름)/lib/python3.5/site-packages/cv2.so
+```
+>> 이 방법으로 다운안되면 `pip3 install opencv-python`로 다운
 
-./download_mpii.sh  # to get MPII dataset(아직)
-
-cd ..
-
-
-
-7. export PYTHONPATH=(shift + ~)pwd(shift + ~)
-
-python datasets/lsp_dataset.py
-
-python datasets/mpii_dataset.py(아직)
-
-
-
-8. 가상환경에서 필요한거 다운
-
-9. ln -s /usr/local/lib/python3.5/dist-packages/cv2.so ~/(가상환경이름)/lib/python3.5/site-packages/cv2.so
->> 이 방법으로 다운안되면 pip3 install opencv-python로 다운
-
-10. mkdir src
-
-11. cd src
-
-12. cd deeppose
-
-13. CUDA_VISIBLE_DEVICES=1 bash examples/train_lsp_alexnet_imagenet_small.sh
->>>원진 0번,  주영 1번, ...
+2. 원진 0번,  주영 1번, 성우 2번, 소연 3번
+```
+>> CUDA_VISIBLE_DEVICES=1 bash examples/train_lsp_alexnet_imagenet_small.sh
+```
 
 14. 필요한거 다 깔기
-(tensorflow설치>>)tensorflow version 1.4.1로 설치 >>pip3 install tensorflow-gpu==1.4.1
+(tensorflow설치)tensorflow version 1.4.1로 설치 
+```
+>> pip3 install tensorflow-gpu==1.4.1
+```
+나머지 깔기
+```
+>> pip install --upgrade chainer numpy tqdm scipy
+```
 
-15. bash examples/train_lsp_alexnet_imagenet_small.sh 했을때 (SystemError: Parent module '' not loaded, cannot perform relative import)오류나면 
+15. small 데이터 트레이닝
+```
+>> bash examples/train_lsp_alexnet_imagenet_small.sh 
+```
 
-16. git pull 
+18. 서버 내에서 training된 weight 가져오기 
+```
+>> tar xvfz /var/lsp_alexnet_imagenet.tar.gz 
+```
 
-17. 다시  bash examples/train_lsp_alexnet_imagenet_small.sh
+19. 원본 이미지넷 테스트
+```
+python tests/test_snapshot.py lsp out/lsp_alexnet_imagenet/checkpoint-50000
+```
 
-18. 서버 내에서 training된 weight 가져오기 >>tar xvfz /tmp/out.tar.gz
 
-19. restore하기
+
+# restore하기
 
 >>> 아직 시행착오중
 
