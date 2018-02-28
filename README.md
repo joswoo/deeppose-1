@@ -16,29 +16,39 @@
 ```
 
 4. git clone 하기
-`mkdir src`
+```mkdir src```
 
-`cd src`
+```
+cd src
+```
 
 ```
 >> git clone https://github.com/ys7yoo/deeppose.git
 ```
 
 7. 우리 서버 weight 받기
-`cd deeppose`
+```
+cd deeppose
+```
   
-`mkdir weights`
+```
+mkdir weights
+```
 
-`cd weights`
+```
+cd weights
+```
 ```
 >> wget http://smart.inu.ac.kr/weights/bvlc_alexnet.tf
 ```
 
 8. dataset 받기
-`cd datasets`
-
-`./download_lsp.sh`
-
+```
+cd datasets
+```
+```
+./download_lsp.sh
+```
 
 
 # 가상환경에서 필요한거 다운
@@ -47,7 +57,7 @@
 ```
 >> ln -s /usr/local/lib/python3.5/dist-packages/cv2.so ~/(가상환경이름)/lib/python3.5/site-packages/cv2.so
 ```
->> 이 방법으로 다운안되면 `pip3 install opencv-python`로 다운
+> 이 방법으로 다운안되면 `pip3 install opencv-python`로 다운
 
 
 2. tensorflow설치 tensorflow version 1.4.1로 설치 
