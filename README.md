@@ -18,7 +18,7 @@
   
 
 5. mkdir weights
-
+d
 cd weights
 
 wget http://smart.inu.ac.kr/weights/bvlc_alexnet.tf
