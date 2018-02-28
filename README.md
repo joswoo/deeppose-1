@@ -79,8 +79,10 @@
 
 8. 원본 이미지넷 테스트
 ```
-CUDA_VISIBLE_DEVICES=0 python tests/test_snapshot.py lsp out/lsp_alexnet_imagenet/checkpoint-50000
+>> CUDA_VISIBLE_DEVICES=0 python tests/test_snapshot.py lsp out/lsp_alexnet_imagenet/checkpoint-50000
 ```
+> gpu 나눠 쓰기 원진 0번,  주영 1번, 성우 2번, 소연 3번
+
 
 
 
