@@ -17,37 +17,29 @@
 
 4. git clone 하기
 ```
-mkdir src
+>> mkdir src
 
-cd src
-```
+>> cd src
 
-```
 >> git clone https://github.com/ys7yoo/deeppose.git
 ```
 
 7. 우리 서버 weight 받기
 ```
-cd deeppose
-```
-  
-```
-mkdir weights
-```
+>> cd deeppose
 
-```
-cd weights
-```
-```
+>> mkdir weights
+
+>> cd weights
+
 >> wget http://smart.inu.ac.kr/weights/bvlc_alexnet.tf
 ```
 
 8. dataset 받기
 ```
-cd datasets
-```
-```
-./download_lsp.sh
+>> cd datasets
+
+>> ./download_lsp.sh
 ```
 
 
@@ -70,7 +62,7 @@ cd datasets
 >> pip install --upgrade chainer numpy tqdm scipy
 ```
 
-4. 원진 0번,  주영 1번, 성우 2번, 소연 3번
+4. gpu 나눠 쓰기 원진 0번,  주영 1번, 성우 2번, 소연 3번
 ```
 >> CUDA_VISIBLE_DEVICES=1 bash examples/train_lsp_alexnet_imagenet_small.sh
 ```
@@ -85,7 +77,7 @@ cd datasets
 >> bash examples/train_lsp_alexnet_imagenet_small.sh 
 ```
 
-7. 서버 내에서 training된 weight 가져오기 
+7. training된 weight 가져오기 
 ```
 >> tar xvfz /var/lsp_alexnet_imagenet.tar.gz 
 ```
@@ -99,9 +91,9 @@ python tests/test_snapshot.py lsp out/lsp_alexnet_imagenet/checkpoint-50000
 
 # restore하기
 
->>> 아직 시행착오중
+> 아직 시행착오중
 
-1번>>
+> 1번
 test_restore
 
 import tensorflow as tf
@@ -111,7 +103,7 @@ saver=tf.train.import_meta_graph("out/lsp_alexnet_imagenet_small/checkpoint-1500
 with tf.Session() as sess:
 saver.restore(sess, "out/lsp_alexnet_imagenet_small/checkpoint-150000.data-00000-of-00001")
 
-2번>>
+> 2번
 
 #/model/test.py
 
