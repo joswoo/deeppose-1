@@ -7,7 +7,7 @@
 
 2. 가상환경 만들기
 ```
->> virtualenv -p python3 (jy)
+>> virtualenv -p python3 jy
 ```
 
 3. 가상환경들어가기
