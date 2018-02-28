@@ -73,7 +73,7 @@ python datasets/mpii_dataset.py(아직)
 >>> 아직 시행착오중
 
 1번>>
-# test_restore
+test_restore
 
 import tensorflow as tf
 
